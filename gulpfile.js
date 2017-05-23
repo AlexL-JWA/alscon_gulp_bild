@@ -18,6 +18,7 @@ var gulp = require('gulp'),
     assets = require('postcss-assets'),
     precss = require('precss'),
     babel = require('gulp-babel'),
+    syntax = require('postcss-scss'),
     del = require('del');
 
 gulp.task('iconfont', function () { // svg font
@@ -57,7 +58,9 @@ gulp.task('iconfont', function () { // svg font
 
 gulp.task('post-css', function () { // post css
     var processors = [
-        precss,
+        precss({
+            parser: 'postcss-scss'
+        }),
         rucksack,
         inlinesvg,
         cssnext,
@@ -66,12 +69,13 @@ gulp.task('post-css', function () { // post css
             basePath: 'dist/',
             relative: true
         }),
+
         cssnano
 
 
     ];
 
-    return gulp.src('dev/css/*.scss')
+    return gulp.src('dev/css/*{.css,.scss}')
         .pipe(sourcemaps.init())
         .pipe(postcss(processors))
         .pipe(concat('main.css'))

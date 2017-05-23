@@ -1,4 +1,115 @@
-/*
-//START HEADER
-//END HEADER
-*/
+/*START HEADER*/
+
+$mainColor:#111;
+$noMainColor:#c0392b;
+.internal-page {
+    header {
+        border-bottom: 3px solid #d4574a;
+    }
+}
+
+header {
+    height: 130px;
+    border-bottom: 3px solid transparent;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    .left-block,
+    .center-block,
+    .right-block {
+        width: calc(100% / 3);
+        float: left;
+    }
+    .center-block {
+        text-align: center;
+        margin: 10px 0;
+        .logo {
+            width: 130px;
+            display: table;
+            margin: 0 auto;
+            a {
+                display: block;
+            }
+            img {
+                width: 100%;
+            }
+        }
+    }
+    .right-block {
+        margin-top: 57px;
+        text-align: right;
+        .language-menu {
+            display: inline-block;
+            button {
+                background: none !important;
+                border: none !important;
+                font-size: 24px;
+                color: #d0cfcf;
+                font-weight: 400;
+            }
+            i {
+                &:before {
+                    font-size: 24px;
+                    display: inline-block;
+                    vertical-align: middle;
+                    color: #d4574a;
+                    margin-left: 10px;
+                }
+            }
+            #language {
+                margin: 0;
+                position: absolute;
+                left: 0;
+                top: 30px;
+                display: none;
+                li {
+                    a {
+                        font-size: 24px;
+                        color: #d0cfcf;
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
+    }
+    .left-block {
+        margin-top: 64px;
+        ul {
+            li {
+                display: inline-block;
+                &:first-of-type {
+                    margin-right: 40px;
+                    img {
+                        position: relative;
+                        top: -1px;
+                    }
+                }
+                img {
+                    max-width: 100%;
+                }
+                a {
+                    display: block;
+                }
+            }
+        }
+    }
+    .button {
+        border: 3px solid #d4574a;
+        background-color: #ffffff;
+        width: 245px;
+        height: 40px;
+        line-height: 34px;
+        text-transform: uppercase;
+        color: #d4574a;
+        font-size: 20px;
+        font-weight: 400;
+        display: inline-block;
+        text-align: center;
+        margin: 0 15px 0 0;
+    }
+}
+
+
+/*END HEADER*/
