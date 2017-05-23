@@ -2,24 +2,3 @@
 //START HEADER
 //END HEADER
 */
-
-$maincolor: gray;
-:root {
-    --myGray: #00000;
-}
-
-body {
-    color: --myGray;
-    background: #fff;
-    font-size: responsive 16px 30px;
-    p {
-        color: color(#fff blackness(95%));
-    }
-    background-color: $maincolor;
-    padding: 20% auto;
-    background: url(../img_client/20160318_223824.jpg) no-repeat;
-    margin: 10px 50px;
-    a:hover {
-        color: #d4d4d4;
-    }
-}
