@@ -4,7 +4,7 @@ var gulp = require('gulp'),
     postcss = require('gulp-postcss'),
     cssnano = require('cssnano'),
     concat = require('gulp-concat'),
-    brow_sync = require('browser-sync'),
+    brow_sync = require('browser-sync').create(),
     uglify = require('gulp-uglifyjs'),
     newer = require('gulp-newer'),
     sourcemaps = require('gulp-sourcemaps'),
@@ -18,8 +18,8 @@ var gulp = require('gulp'),
     assets = require('postcss-assets'),
     precss = require('precss'),
     babel = require('gulp-babel'),
-    syntax = require('postcss-scss'),
     del = require('del');
+
 
 gulp.task('iconfont', function () { // svg font
 
@@ -69,10 +69,7 @@ gulp.task('post-css', function () { // post css
             basePath: 'dist/',
             relative: true
         }),
-
         cssnano
-
-
     ];
 
     return gulp.src('dev/css/*{.css,.scss}')
