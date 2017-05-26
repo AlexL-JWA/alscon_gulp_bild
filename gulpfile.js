@@ -50,8 +50,12 @@ gulp.task('iconfont', function () { // svg font
                 .pipe(gulp.dest('dev/css/'))
                 .pipe(postcss(processors));
 
-            gulp.src('dev/*.html')
-                .pipe(gulp.dest('dist/'));
+            gulp.src('dev/icons/template_html/index.html')
+                .pipe(consolidate('underscore', {
+                    glyphs: glyphs,
+                    fontName: options.fontName
+                }))
+                .pipe(gulp.dest('dist/preview'));
         })
         .pipe(gulp.dest('dist/fonts'));
 });
