@@ -4,8 +4,8 @@ custom-icons Webfont
 
 @font-face {
     font-family: 'custom-icons';
-    src: url('../fonts/custom-icons.eot?1495528402238');
-    src: url('../fonts/custom-icons.eot?#iefix-1495528402238') format('embedded-opentype'), url('../fonts/custom-icons.woff2?1495528402238') format('woff2'), url('../fonts/custom-icons.woff?1495528402238') format('woff'), url('../fonts/custom-icons.ttf?1495528402238') format('truetype');
+    src: url('../fonts/custom-icons.eot?1495789579878');
+    src: url('../fonts/custom-icons.eot?#iefix-1495789579878') format('embedded-opentype'), url('../fonts/custom-icons.woff2?1495789579878') format('woff2'), url('../fonts/custom-icons.woff?1495789579878') format('woff'), url('../fonts/custom-icons.ttf?1495789579878') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -32,15 +32,15 @@ custom-icons Webfont
 Glyphs list
 */
 
-.icon-heart-outline:before {
+.icon-game-controller-a:before {
         content: '\ea01';
     }
-    .icon-icon-game-controller-a:before {
+    .icon-gear-a:before {
         content: '\ea02';
     }
-    .icon-icon-gear-a:before {
+    .icon-heart:before {
         content: '\ea03';
     }
-    .icon-icon-mic-a:before {
+    .icon-mic-a:before {
         content: '\ea04';
     }
