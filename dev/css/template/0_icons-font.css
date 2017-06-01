@@ -3,6 +3,14 @@
 */
 
 @font-face {
+    font-family: 'GOTHIC';
+    src: url('../fonts/GOTHIC.ttf');
+    src: url('../fonts/GOTHIC-icons.eot') format('embedded-opentype'), url('../fonts/GOTHIC-icons.woff2') format('woff2'), url('../fonts/customGOTHICicons.woff') format('woff'), url('../fonts/GOTHIC-icons.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
     font-family: '<%= fontName %>';
     src: url('../fonts/<%= fontName %>.eot?<%= fontDate %>');
     src: url('../fonts/<%= fontName %>.eot?#iefix-<%= fontDate %>') format('embedded-opentype'), url('../fonts/<%= fontName %>.woff2?<%= fontDate %>') format('woff2'), url('../fonts/<%= fontName %>.woff?<%= fontDate %>') format('woff'), url('../fonts/<%= fontName %>.ttf?<%= fontDate %>') format('truetype');

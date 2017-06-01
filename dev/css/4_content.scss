@@ -1,0 +1,27 @@
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+
+.box {
+    @include border-radius(10px);
+}
+
+@mixin transish ($a, $b. $c) {
+    -webkit-transition: $a $b $c;
+    -moz-transition: $a $b $c;
+    -ms-transition: $a $b $c;
+    -o-transition: $a $b $c;
+    transition: $a $b $c;
+}
+
+body {
+    font-family: "GOTHIC";
+    p {
+        font-family: "Alice";
+        display: flex;
+        order: 10;
+    }
+}
