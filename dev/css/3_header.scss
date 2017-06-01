@@ -111,5 +111,13 @@ header {
     }
 }
 
+@font-face {
+    font-family: 'GOTHIC';
+    src: url('../fonts/GOTHIC.ttf');
+    src: url('../fonts/GOTHIC-icons.eot') format('embedded-opentype'), url('../fonts/GOTHIC-icons.woff2') format('woff2'), url('../fonts/customGOTHICicons.woff') format('woff'), url('../fonts/GOTHIC-icons.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 /*END HEADER*/

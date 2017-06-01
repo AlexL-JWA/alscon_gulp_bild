@@ -3,9 +3,17 @@ custom-icons Webfont
 */
 
 @font-face {
+    font-family: 'GOTHIC';
+    src: url('../fonts/GOTHIC.ttf');
+    src: url('../fonts/GOTHIC-icons.eot') format('embedded-opentype'), url('../fonts/GOTHIC-icons.woff2') format('woff2'), url('../fonts/customGOTHICicons.woff') format('woff'), url('../fonts/GOTHIC-icons.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'custom-icons';
-    src: url('../fonts/custom-icons.eot?1495789579878');
-    src: url('../fonts/custom-icons.eot?#iefix-1495789579878') format('embedded-opentype'), url('../fonts/custom-icons.woff2?1495789579878') format('woff2'), url('../fonts/custom-icons.woff?1495789579878') format('woff'), url('../fonts/custom-icons.ttf?1495789579878') format('truetype');
+    src: url('../fonts/custom-icons.eot?1496244481303');
+    src: url('../fonts/custom-icons.eot?#iefix-1496244481303') format('embedded-opentype'), url('../fonts/custom-icons.woff2?1496244481303') format('woff2'), url('../fonts/custom-icons.woff?1496244481303') format('woff'), url('../fonts/custom-icons.ttf?1496244481303') format('truetype');
     font-weight: normal;
     font-style: normal;
 }

@@ -2,7 +2,7 @@ var gulp = require('gulp'),
     consolidate = require('gulp-consolidate'),
     iconfont = require('gulp-iconfont'),
     postcss = require('gulp-postcss'),
-    cssnano = require('cssnano'),
+    cssnano = require('gulp-cssnano'),
     concat = require('gulp-concat'),
     brow_sync = require('browser-sync').create(),
     uglify = require('gulp-uglifyjs'),
@@ -18,6 +18,7 @@ var gulp = require('gulp'),
     assets = require('postcss-assets'),
     precss = require('precss'),
     babel = require('gulp-babel'),
+    mixin = require('postcss-sassy-mixins'),
     del = require('del');
 
 
@@ -62,8 +63,11 @@ gulp.task('iconfont', function () { // svg font
 
 gulp.task('post-css', function () { // post css
     var processors = [
+
+        mixin,
         precss({
-            parser: 'postcss-scss'
+            parser: 'postcss-scss',
+            browsers: ["> 5%"]
         }),
         rucksack,
         inlinesvg,
@@ -72,15 +76,15 @@ gulp.task('post-css', function () { // post css
             loadPaths: ['dist/fonts/', 'dist/img/', 'dist/img_clients/'],
             basePath: 'dist/',
             relative: true
-        }),
-        cssnano
-    ];
+        })
+        ];
 
     return gulp.src('dev/css/*{.css,.scss}')
         .pipe(sourcemaps.init())
         .pipe(postcss(processors))
         .pipe(concat('main.css'))
         .pipe(sourcemaps.write())
+        .pipe(cssnano())
         .pipe(gulp.dest('dist/css'));
 });
 
@@ -93,7 +97,7 @@ gulp.task('brow_sync', function () { // browser sync
 
 
 gulp.task('watch', function () {
-    gulp.watch('dev/css/*.scss', ['post-css']);
+    gulp.watch('dev/css/*{.css,.scss}', ['post-css']);
     gulp.watch('dev/icons/**/*.svg', ['iconfont']);
     gulp.watch('dev/font/**/*.*', ['asset_font']);
     gulp.watch('dev/*.html', ['asset_html']);
