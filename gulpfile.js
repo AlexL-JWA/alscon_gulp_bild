@@ -19,6 +19,7 @@ var gulp = require('gulp'),
     precss = require('precss'),
     babel = require('gulp-babel'),
     mixin = require('postcss-sassy-mixins'),
+    plumber = require('gulp-plumber'),
     del = require('del');
 
 
@@ -81,6 +82,7 @@ gulp.task('post-css', function () { // post css
 
     return gulp.src('dev/css/*{.css,.scss}')
         .pipe(sourcemaps.init())
+        .pipe(plumber())
         .pipe(postcss(processors))
         .pipe(concat('main.css'))
         .pipe(sourcemaps.write())
@@ -134,7 +136,7 @@ gulp.task('tinypng', function () {
             log: true
         }))
         .pipe(remember('tinypng'))
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('js', function () {
