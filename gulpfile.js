@@ -20,6 +20,7 @@ var gulp = require('gulp'),
     babel = require('gulp-babel'),
     mixin = require('postcss-sassy-mixins'),
     plumber = require('gulp-plumber'),
+    pug = require('gulp-pug'),
     del = require('del');
 
 
@@ -102,12 +103,22 @@ gulp.task('watch', function () {
     gulp.watch('dev/css/*{.css,.scss}', ['post-css']);
     gulp.watch('dev/icons/**/*.svg', ['iconfont']);
     gulp.watch('dev/font/**/*.*', ['asset_font']);
+    gulp.watch('dev/pug/**/*.pug', ['pug']);
     gulp.watch('dev/*.html', ['asset_html']);
     gulp.watch('dev/js/**/*.js', ['js']);
     gulp.watch('dev/**/*.{{.png,.jpg,.jpeg,.gif}}', ['accet_img'])
 
 });
 
+gulp.task('pug', function(){
+    return gulp.src('dev/pug/**/*.pug')
+    .pipe(pug(
+        {
+            pretty: true
+        }
+    ))
+    .pipe(gulp.dest('dev'));
+});
 
 gulp.task('asset_html', function () {
     return gulp.src('dev/*.html')

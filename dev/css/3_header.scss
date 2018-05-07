@@ -11,11 +11,7 @@ $noMainColor:#c0392b;
 header {
     height: 130px;
     border-bottom: 3px solid transparent;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    z-index: 10;
+    color: $mainColor;
     .left-block,
     .center-block,
     .right-block {

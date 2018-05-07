@@ -12,8 +12,8 @@ custom-icons Webfont
 
 @font-face {
     font-family: 'custom-icons';
-    src: url('../fonts/custom-icons.eot?1496910849371');
-    src: url('../fonts/custom-icons.eot?#iefix-1496910849371') format('embedded-opentype'), url('../fonts/custom-icons.woff2?1496910849371') format('woff2'), url('../fonts/custom-icons.woff?1496910849371') format('woff'), url('../fonts/custom-icons.ttf?1496910849371') format('truetype');
+    src: url('../fonts/custom-icons.eot?1525684557544');
+    src: url('../fonts/custom-icons.eot?#iefix-1525684557544') format('embedded-opentype'), url('../fonts/custom-icons.woff2?1525684557544') format('woff2'), url('../fonts/custom-icons.woff?1525684557544') format('woff'), url('../fonts/custom-icons.ttf?1525684557544') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -52,3 +52,4 @@ Glyphs list
     .icon-mic-a:before {
         content: '\ea04';
     }
+    
