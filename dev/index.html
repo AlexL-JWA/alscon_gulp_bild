@@ -4,11 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Test Pug Page</title>
-    <link href="css/main.css" rel="stylesheet"><!--[if lt IE 9]>
+    <title>Test Pug Page</title><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+    <!--build:css css/lib.css -->
+    <!-- bower:css-->
+    <link rel="stylesheet" href="lib/bootstrap-grid-only/css/grid12.css" />
+    <link rel="stylesheet" href="lib/slick-carousel/slick/slick.css" />
+    <!-- endbower -->
+    <!--endbuild-->
+    <link href="css/main.css" rel="stylesheet">
   </head>
   <body>
     <!-- Start Header code-->
@@ -19,14 +25,14 @@
             <div class="col-lg-4"><img src="img/logo.png" alt="some text alt" title="some text title img logo"></div>
             <div class="col-lg-8">
               <ul class="header-menu">
-                <li><a href="#">Item menu1</a></li>
+                <li> <a class="test" href="#">Item menu2</a></li>
                 <li><a href="#">Item menu2</a></li>
                 <li><a href="#">Item menu3</a></li>
                 <li><a href="#">Item menu4</a></li>
                 <li><a href="#">Item menu5</a></li>
                 <li><a href="#">Item menu6</a></li>
                 <li><a href="#">Item menu7</a></li>
-                <li><a href="#">Item menu8</a></li>
+                <li><a class="test" href="#">Item menu8</a></li>
               </ul>
             </div>
           </header>
@@ -38,7 +44,7 @@
     <div class="wrapper">
       <div class="container">
         <div class="row">
-          <div class="col-lg-12">
+          <div class="col-lg-8 col-xl-12">
             <h1>Test H1 Header</h1>
             <table class="table table-striped">
               <tr>
@@ -58,41 +64,33 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-4">
-            <h3 class="title_footer_columns">title footer 1</h3><img class="img-footer" src="img/Lorem-Ipsum-Generators.jpg" title="some text img title" alt="some text alt">
+            <h3 class="title_footer_columns">title footer 1</h3><img class="img-footer" src="img/Lorem-Ipsum-Generators.jpg" title="some text img title" alt="ds">
             <p class="footer-text">
                Lorem ipsum dolor sit, 
-              amet consectetur adipisicing elit. 
               Sapiente doloremque officia consequatur 
               quos quam ad?
+              fhsdkjfhkjsd jfndskjfjksd  
             </p>
           </div>
           <div class="col-lg-4">
-            <h3 class="title_footer_columns">title footer 2</h3><span class="separator"></span>
+            <h3 class="title_footer_columns">title fooster 1</h3><span class="separator"></span>
             <ul class="footer-menu">
-              <li><a href="#">item1</a></li>
+              <li><a href="#">itdem4</a></li>
+              <li><a href="#">item2s</a></li>
+              <li><a href="#">item</a></li>
+              <li><a href="#">it3m53</a></li>
+              <li><a href="#">item32</a></li>
               <li><a href="#">item2</a></li>
-              <li><a href="#">item3</a></li>
-              <li><a href="#">item4</a></li>
-              <li><a href="#">item5</a></li>
-              <li><a href="#">item6</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-4">
-            <h3 class="title_footer_columns">title footer 2</h3><span class="separator"></span>
-            <ul class="footer-menu">
-              <li><a href="#">item1</a></li>
-              <li><a href="#">item2</a></li>
-              <li><a href="#">item3</a></li>
-              <li><a href="#">item4</a></li>
-              <li><a href="#">item5</a></li>
-              <li><a href="#">item6</a></li>
             </ul>
           </div>
         </div>
       </div>
     </footer>
-    <!-- End footer code-->
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins)--><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed--><script src="js/bootstrap.min.js"></script>
+    <!-- build:js js/lib.js--><!-- bower:js -->
+<script src="lib/jquery/dist/jquery.js"></script>
+<script src="lib/slick-carousel/slick/slick.js"></script>
+<!-- endbower -->
+    <!-- endbuild -->
+    <script src="js/build.js"></script>
   </body>
 </html>

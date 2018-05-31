@@ -1,29 +1,29 @@
 @media only screen and (max-width : 1199px)
 {
-
+    a.red{color: red}
 }
 
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 991px)
 {
-
+    a.red{color: black}
 }
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 767px)
 {
-
+    a.red{color: rgb(216, 40, 40)}
 }
 
 @media only screen and (max-width : 479px)
 {
-
+    a.red{color: rgb(9, 172, 91)}
 
 }
 
 /* Custom, iPhone Retina */
 @media only screen and (max-width : 379px)
 {
-
+    a.red{color: rgb(80, 43, 9)}
 }

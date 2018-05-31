@@ -1,0 +1,22 @@
+{
+  "name": "alscon-web front-end gulp  bower",
+  "description": "test progect",
+  "main": "gulpfile.js",
+  "authors": [
+    "Alex Lavigin"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/lovik1468/alscon_gulp_bild",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-grid-only": "^1.0.0",
+    "jquery": "2.1.4",
+    "slick-carousel": "slick-slide#^1.8.1"
+  }
+}
