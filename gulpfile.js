@@ -20,8 +20,8 @@ var gulp = require('gulp'),
     mixin = require('postcss-sassy-mixins'),
     plumber = require('gulp-plumber'),
     pug = require('gulp-pug'),
-    //wiredep = require('gulp-wiredep'),
-    wiredep = require('wiredep').stream,
+    wiredep = require('gulp-wiredep'),
+    //wiredep = require('wiredep').stream,
     useref = require('gulp-useref'),
     gulpif = require('gulp-if'),
     runSequence = require('run-sequence'),
@@ -130,9 +130,13 @@ gulp.task('watch', function () {
     gulp.watch('dev/css/*{.css,.scss}', ['post-css']);
     gulp.watch('dev/icons/**/*.svg', ['iconfont']);
     gulp.watch('dev/font/**/*.*', ['asset_font']);
-    gulp.watch('dev/pug/**/*.pug', ['pug']);
-    gulp.watch('dev/*.html', ['asset_html' ]);
-    gulp.watch('dev/*.html', ['bower']);
+    gulp.watch('dev/pug/**/*.pug', function(){
+        runSequence('pug', ['bower']);
+    });
+    gulp.watch('bower.json', ['bower']);
+    gulp.watch('dev/*.html', function(){
+        runSequence('bower', ['asset_html']);
+    });
     gulp.watch('dev/lib/**/*{.js,.css}', ['asset_lib']);
     gulp.watch('dev/js/**/*.js', ['js']);
     gulp.watch('dev/**/*.{{.png,.jpg,.jpeg,.gif}}', ['accet_img'])

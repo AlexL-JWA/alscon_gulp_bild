@@ -15,8 +15,9 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap-grid-only": "^1.0.0",
     "jquery": "2.1.4",
-    "slick-carousel": "slick-slide#^1.8.1"
+    "slick-carousel": "slick-slide#^1.8.1",
+    "bootstrap": "https://github.com/twbs/bootstrap.git#^4.1.1",
+    "fancybox": "^3.3.5"
   }
 }
