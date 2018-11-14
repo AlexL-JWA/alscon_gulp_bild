@@ -4,5 +4,3 @@
 /bower_components/
 /node_modules/
 package-lock.json
-/dev/lib
-/dev/layout

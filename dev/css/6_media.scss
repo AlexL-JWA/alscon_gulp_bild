@@ -1,0 +1,44 @@
+@media only screen and (max-width : 1199px)
+{
+    .container {
+        max-width: 960px;
+    }
+}
+
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 991px)
+{
+    .container {
+        max-width: 720px;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 767px)
+{
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media only screen and (max-width : 579px)
+{
+    .container {
+        max-width: 100%;
+    }
+
+}
+
+@media only screen and (max-width : 479px)
+{
+
+
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 379px)
+{
+
+}
+

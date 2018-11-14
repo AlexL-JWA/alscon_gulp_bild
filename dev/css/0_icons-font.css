@@ -1,0 +1,47 @@
+/**
+custom-icons Webfont
+*/
+
+@font-face {
+    font-family: 'custom-icons';
+    src: url('../fonts/custom-icons.eot?1529671732203');
+    src: url('../fonts/custom-icons.eot?#iefix-1529671732203') format('embedded-opentype'), url('../fonts/custom-icons.woff2?1529671732203') format('woff2'), url('../fonts/custom-icons.woff?1529671732203') format('woff'), url('../fonts/custom-icons.ttf?1529671732203') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^='icon-']:before,
+[class*=' icon-']:before {
+    font-family: 'custom-icons';
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+    font-weight: normal;
+    font-style: normal;
+    speak: none;
+    text-decoration: inherit;
+    font-size: inherit;
+    text-transform: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+/*
+Glyphs list
+*/
+
+.icon-circle:before {
+        content: '\ea01';
+    }
+    .icon-circle2:before {
+        content: '\ea02';
+    }
+    .icon-circle3:before {
+        content: '\ea03';
+    }
+    .icon-question:before {
+        content: '\ea04';
+    }
+    

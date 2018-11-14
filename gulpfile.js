@@ -2,10 +2,11 @@ var gulp = require('gulp'),
     consolidate = require('gulp-consolidate'),
     iconfont = require('gulp-iconfont'),
     postcss = require('gulp-postcss'),
-    cssnano = require('gulp-cssnano'),
+    cssnano = require('cssnano'),
     concat = require('gulp-concat'),
     brow_sync = require('browser-sync').create(),
     uglify = require('gulp-uglifyjs'),
+    newer = require('gulp-newer'),
     sourcemaps = require('gulp-sourcemaps'),
     tinypng = require('gulp-tinypng-compress'),
     cached = require('gulp-cached'),
@@ -20,15 +21,9 @@ var gulp = require('gulp'),
     mixin = require('postcss-sassy-mixins'),
     plumber = require('gulp-plumber'),
     pug = require('gulp-pug'),
-    wiredep = require('gulp-wiredep'),
-    //wiredep = require('wiredep').stream,
-    useref = require('gulp-useref'),
-    gulpif = require('gulp-if'),
-    runSequence = require('run-sequence'),
-    clip = require('gulp-clip-empty-files'),
     del = require('del');
 
-// Creating icon fonts
+
 gulp.task('iconfont', function () { // svg font
 
     var processors = [
@@ -67,9 +62,7 @@ gulp.task('iconfont', function () { // svg font
         })
         .pipe(gulp.dest('dist/fonts'));
 });
-//End ico fonts
 
-// Compiling PostCSS with syntax capability SASS + NextCSS
 gulp.task('post-css', function () { // post css
     var processors = [
 
@@ -85,66 +78,38 @@ gulp.task('post-css', function () { // post css
             loadPaths: ['dist/fonts/', 'dist/img/', 'dist/img_clients/'],
             basePath: 'dist/',
             relative: true
-        })
+        }),
+        cssnano(),
         ];
 
-    return gulp.src(['dev/css/reset.scss', 'dev/css/font.scss', 'dev/css/icons-font.css', 'dev/css/header.scss','dev/css/content.scss', 'dev/css/footer.scss', 'dev/css/media.scss'])
+    return gulp.src('dev/css/*{.css,.scss}')
         .pipe(sourcemaps.init())
         .pipe(plumber())
         .pipe(postcss(processors))
         .pipe(concat('main.css'))
         .pipe(sourcemaps.write())
-        .pipe(cssnano())
         .pipe(gulp.dest('dist/css'));
 });
-// End PostCSS
 
-//Bower start task
-gulp.task('bower', function(){
-    return gulp.src('dev/*.html')
-    .pipe(clip())
-    .pipe(wiredep({
-        directory : 'dev/lib'
-    }))
-    .pipe(gulp.dest('dev'));
-});
-
-gulp.task('asset_lib', function () {
-    return gulp.src('dev/lib/**/*{.css,.js}')
-        .pipe(gulp.dest('dist/lib'));
-
-}); 
-//bower end 
-
-//Browser synchronization
 gulp.task('brow_sync', function () { // browser sync
     brow_sync.init({
         server: 'dist'
     });
     brow_sync.watch('dist/**/*.*').on('change', brow_sync.reload);
 });
-// End browser synchronization
 
-// Track changes to development files
+
 gulp.task('watch', function () {
     gulp.watch('dev/css/*{.css,.scss}', ['post-css']);
     gulp.watch('dev/icons/**/*.svg', ['iconfont']);
     gulp.watch('dev/font/**/*.*', ['asset_font']);
-    gulp.watch('dev/pug/**/*.pug', function(){
-        runSequence('pug', ['bower']);
-    });
-    gulp.watch('bower.json', ['bower']);
-    gulp.watch('dev/*.html', function(){
-        runSequence('bower', ['asset_html']);
-    });
-    gulp.watch('dev/lib/**/*{.js,.css}', ['asset_lib']);
+    gulp.watch('dev/pug/**/*.pug', ['pug']);
+    gulp.watch('dev/*.html', ['asset_html']);
     gulp.watch('dev/js/**/*.js', ['js']);
     gulp.watch('dev/**/*.{{.png,.jpg,.jpeg,.gif}}', ['accet_img'])
 
 });
-// end watch
 
-// compiling pug / jade files
 gulp.task('pug', function(){
     return gulp.src('dev/pug/**/*.pug')
     .pipe(pug(
@@ -154,37 +119,25 @@ gulp.task('pug', function(){
     ))
     .pipe(gulp.dest('dev'));
 });
-// end pug
 
-// Transferring html files to the dist folder
 gulp.task('asset_html', function () {
     return gulp.src('dev/*.html')
-        .pipe(useref())
-        .pipe(clip())
-        .pipe(gulpif('*.js', uglify()))
-        .pipe(gulpif('*.css', cssnano()))
-        .pipe(gulp.dest('dist/'));
-
-});
-// end transfer html files
-
-//Transferring image files to the dist folder
-gulp.task('asset_img', function () {
-    return gulp.src('dev/**/*{.png,.jpg,.jpeg,.gif}')
         .pipe(gulp.dest('dist'));
 
 });
-//End image
 
-//Transferring font files to the dist folder
+gulp.task('asset_img', function () {
+    return gulp.src('dev/**/*{.png,.jpg,.jpeg,.gif,.svg}')
+        .pipe(gulp.dest('dist'));
+
+});
+
 gulp.task('asset_font', function () {
     return gulp.src('dev/font/**/*.*')
         .pipe(gulp.dest('dist/fonts'));
 
 });
-// End font
 
-// Optimizing images through TinyPNG
 gulp.task('tinypng', function () {
     return gulp.src('dev/**/*.{png,jpg,jpeg}')
         .pipe(cached('tinypng'))
@@ -196,9 +149,7 @@ gulp.task('tinypng', function () {
         .pipe(remember('tinypng'))
         .pipe(gulp.dest('dist/'));
 });
-// End optimizing images
 
-// Compiling all js files into one and bringing them to the es2015 standard
 gulp.task('js', function () {
     return gulp.src('dev/js/**/*.js')
         .pipe(babel({
@@ -209,24 +160,11 @@ gulp.task('js', function () {
         .pipe(gulp.dest('dist/js'));
 
 });
-// end js
 
-//Removes the dist directory
 gulp.task('del', function () {
     return del('dist');
 });
-// end del
 
-//Removes the dist directory
-gulp.task('delLib', function () {
-    return del('dist/lib');
-});
-// end del
+gulp.task('default', ['iconfont', 'asset_font', 'post-css', 'asset_html', 'js', 'asset_img', 'brow_sync', 'watch']);
 
-// Starts the development package
-gulp.task('default', function(callback){
-    runSequence('iconfont', 'asset_font', 'post-css', 'pug', 'bower', 'asset_html', 'asset_lib', 'js', 'asset_img', 'watch', 'brow_sync', callback);
-});
-
-//Starts the final assembly of the project 
-gulp.task('build', ['del', 'iconfont', 'asset_font', 'post-css', 'pug', 'bower', 'asset_lib', 'asset_html', 'js', 'tinypng',]);
+gulp.task('build', ['del', 'tinypng', 'iconfont', 'asset_font', 'post-css', 'asset_html', 'js']);
